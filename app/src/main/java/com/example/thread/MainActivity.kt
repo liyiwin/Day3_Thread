@@ -15,6 +15,12 @@ class MainActivity : AppCompatActivity() {
         thread.start()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        handler.removeCallbacksAndMessages(null)
+    }
+
 val handler  = Handler(object:Handler.Callback{
 
     override fun handleMessage(msg: Message): Boolean {
